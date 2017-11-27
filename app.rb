@@ -1,5 +1,4 @@
 require 'sinatra/base'
-#require_relative ''
 
 class MakersBnB < Sinatra::Base
 
@@ -8,13 +7,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/home' do
-
+    erb(:home)
   end
-
-
-
-
-
-
 
 end
