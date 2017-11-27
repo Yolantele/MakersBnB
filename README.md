@@ -16,23 +16,21 @@ As an owner
 so that I can manage bookings
 I want to approve traveler's request
 
+```
 Domain Model
 
 | Object           | Messages      |
 |:----------------:|:-------------:|
-|                 Owner            |
+|Owner             |               |
 | property         | rent out      |
 | property         | to list       |
 | bookings         | manage        |
 | request          | approved      |
-|:----------------:|:-------------:|
-|               Traveler           |
+| Traveler         |               |
 | property         | choose        |
 | request          | to place      |
 |:----------------:|:-------------:|
 
-
-```
 # Core User Stories
 
 ```
