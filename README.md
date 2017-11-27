@@ -25,11 +25,11 @@ Domain Model
 | property         | rent out      |
 | property         | to list       |
 | bookings         | manage        |
-| request          | approved      |
+| request          | approve       |
 | Traveler         |               |
 | property         | choose        |
 | request          | to place      |
-=======
+
 
 # Core User Stories
 
