@@ -1,22 +1,19 @@
 <html>
-
-
   <center>
     <head>
       <h1>Welcome to MakersBnB</h1>
     </head>
     <body background="white.jpg">
-    <form method='post' >
-    User email: <input type='text' name='user_email' placeholder='your email here'></br>
-    User password: <input type='text' name='user_password' placeholder='your password here'></br>
-    <input type='submit' id='enter' value='Enter'></br>
-  </form></br>
-    <form method='post' >
-    Owner email: <input type='text' name='owner_email' placeholder='your email here'></br>
-    Owner password: <input type='text' name='owner_password' placeholder='your password here'></br>
-    <input type='submit' id='enter' value='Enter'></br>
-  </body>
-  </form>
-
+      <form method='get' action='/travel'>
+      User email: <input type='text' name='user_email' placeholder='your email here'></br>
+      User password: <input type='text' name='user_password' placeholder='your password here'></br>
+      <input type='submit' id='enter' value='Enter'></br>
+      </form></br>
+      <form method='get' action='/property'>
+      Owner email: <input type='text' name='owner_email' placeholder='your email here'></br>
+      Owner password: <input type='text' name='owner_password' placeholder='your password here'></br>
+      <input type='submit' id='enter' value='Enter'></br>
+    </body>
+    </form>
   </center>
 </html>

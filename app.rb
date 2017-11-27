@@ -14,6 +14,13 @@ class MakersBnB < Sinatra::Base
     erb(:home)
   end
 
+  get '/travel' do
+    'traveller side'
+  end
+  
+  get '/property' do
+    redirect '/property/new'
+  end
 
   get '/property/new' do
     erb(:new)
@@ -27,5 +34,6 @@ class MakersBnB < Sinatra::Base
     property = Property.create(name: name, description: description, price: price, email: email)
     p property
   end
+
 
 end
