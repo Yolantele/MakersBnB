@@ -1,4 +1,5 @@
 class Property
+  
   include DataMapper::Resource
 
   property :id, Serial
@@ -6,6 +7,5 @@ class Property
   property :description, Text
   property :price, Integer
   property :email, String
-
 
 end
