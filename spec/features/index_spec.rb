@@ -7,6 +7,4 @@ describe 'MakersBnB', :type => :feature do
       expect(page).to have_content('Owner email:', 'Owner password:')
     end
   end
-
-
 end
