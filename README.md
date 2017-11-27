@@ -1,39 +1,41 @@
-# MakersBnB
+## MakersBnB
 group project for Air BnB clone
 
-Core User Stories
+# Core User Stories
 
-As an owner
-So that I can view new spaces
-I want to list new space
+```
+As an owner <br>
+So that I can view new spaces <br>
+I want to list new space <br>
 
-As an owner
-So that I can rent out multiple times,
-I want to list multiple spaces
+As an owner <br>
+So that I can rent out multiple times, <br>
+I want to list multiple spaces <br>
 
-As an owner
-So that I can put the right information
-I want to add name, short description and price per night,
+As an owner <br>
+So that I can put the right information <br>
+I want to add name, short description and price per night, <br>
 
-As an owner
-So that I know when my properties are available,
-I want to post range of available dates
+As an owner <br>
+So that I know when my properties are available, <br>
+I want to post range of available dates <br>
 
-As an Owner so that I can manage my bookings
-I want my space listed until I confirm a request
+As an Owner so that I can manage my bookings <br>
+I want my space listed until I confirm a request <br>
 
-As an owner 
-so that I can manage bookings
-I want to approve traveler's request
+As an owner <br>
+so that I can manage bookings <br>
+I want to approve traveler's request <br>
 
-As a traveler 
-So that I can choose a property
-I want to make a request for single night
+As a traveler <br>
+So that I can choose a property <br>
+I want to make a request for single night <br>
 
-As a traveler
-So that I don’t make the wrong booking
-I want to see if space is already booked on a certain date
+As a traveler <br>
+So that I don’t make the wrong booking <br>
+I want to see if space is already booked on a certain date <br>
 
+```
 
 # Headline specifications
 
