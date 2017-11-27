@@ -29,7 +29,7 @@ Domain Model
 | Traveler         |               |
 | property         | choose        |
 | request          | to place      |
-|:----------------:|:-------------:|
+=======
 
 # Core User Stories
 
