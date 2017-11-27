@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require 'sinatra/base'
 #require_relative ''
 
@@ -18,3 +19,8 @@ class MakersBnB < Sinatra::Base
 
 
 end
+=======
+ENV['RACK_ENV'] = 'development'
+
+require './datamapper_setup'
+>>>>>>> origin/mst
