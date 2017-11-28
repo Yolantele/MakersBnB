@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>View Requests</title>
-  </head>
-  <body>
-    <% @requests.each do |request| %>
-    <%=  request.name + ", " %>
-    <%=  request.email + ", " %>
-    <%=  request.date %>
-    <% end %>
-  </body>
+  <center>
+    <head></br>
+      <meta charset="utf-8">
+      <title>View Requests</title></br>
+      <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
+    </head>
+    <body backround=''>
+      <% @requests.each do |request| %>
+      <%=  request.name + ", " %>
+      <%=  request.email + ", " %>
+      <%=  request.date %>
+      <% end %>
+    </body>
+  </center>
 </html>

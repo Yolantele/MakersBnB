@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Properties</title>
-  </head>
-  <body>
-    <form action="/request/new" method="get">
-      <input type="submit" value="Make request">
-    </form>
-    <% @properties.map do |property| %>
-    <%= "Id: " + property.id.to_s %>
-    <%="Name: " + property.name%>
-    <%='Description: ' + property.description%>
-    <%='Price: ' + '£' + property.price.to_s%>
-    Email: <a href="mailto:<%= property.email %>"><%= property.email %></a><br><br>
-    <% end %>
-  </body>
+  <center>
+    <head>
+      <meta charset="utf-8">
+      <h2><title>Properties</title></h2></br>
+      <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
+    </head>
+    <body>
+      <form action="/request/new" method="get">
+        <input type="submit" value="Make request">
+      </form></br>
+      <% @properties.map do |property| %>
+      <%= "Id: " + property.id.to_s %>
+      <%="Name: " + property.name%>
+      <%='Description: ' + property.description%>
+      <%='Price: ' + '£' + property.price.to_s%>
+      Email: <a href="mailto:<%= property.email %>"><%= property.email %></a><br><br>
+      <% end %>
+    </body>
+  </center>
 </html>

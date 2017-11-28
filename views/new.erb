@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>New property</title>
-    <!-- <link rel='stylesheet' type='text/css' href='href link to file' > -->
-  </head>
-  <body>
-
-    <form action="/property/new" method="post">
-      <input type="text" name="name" placeholder="Name">
-      <input type="text" name="description" placeholder="Description">
-      <input type="text" name="price" placeholder="Price">
-      <input type="text" name="email" placeholder="Email">
-      <input type="submit" name="post" value="Post">
-    </form>
-        <p style='color:red'> <%= flash[:price_error]%></p>
-  </body>
+    <center>
+      <meta charset="utf-8">
+      <title>New property</title> </br>
+      <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
+    </head>
+    <body background="property.jpg">
+      <form action="/property/new" method="post">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="description" placeholder="Description">
+        <input type="text" name="price" placeholder="Price">
+        <input type="text" name="email" placeholder="Email">
+        <input type="submit" name="post" value="Post">
+      </form></br>
+          <p style='color:red'> <%= flash[:price_error]%></p>
+    </body>
+  </center>
 </html>

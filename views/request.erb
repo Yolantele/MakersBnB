@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
   <center>
-    <head>
+    <head></br>
       <meta charset="utf-8">
-      <title>New request</title>
+      <h2><title>New request</title></h2></br>
+      <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
     </head>
     <body>
-
       <form action="/request/new" method="post">
         <input type="text" name="property_id" placeholder="Property ID">
         <input type="text" name="traveller_name" placeholder="Traveller name">
         <input type="email" name="traveller_email" placeholder="Traveller Email">
         <input type="text" name="date" placeholder="Date">
         <input type="submit" name="submit" value="Submit request">
-      </form>
+      </form></br>
         <p style='color:red'> <%= flash[:error_message]%></p>
         <p style='color:green'> <%= flash[:confirmation_message]%></p>
     </body>
