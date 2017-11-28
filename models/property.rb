@@ -8,5 +8,6 @@ class Property
   property :email, String
 
   has n, :requests
+  has n, :available_dates, through: Resource
 
 end
