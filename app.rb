@@ -20,6 +20,16 @@ class MakersBnB < Sinatra::Base
     erb(:request)
   end
 
+  get '/request/view' do
+    erb(:filter_request)
+  end
+
+  post '/request/view' do
+    owner_email = params[:owneremail]
+    @requests = Property.all(email: owner_email).requests
+    erb(:view_requests)
+  end
+
   post '/request/new' do
     property_id = params[:property_id].to_i
     traveller_name = params[:traveller_name]
@@ -30,10 +40,11 @@ class MakersBnB < Sinatra::Base
     if property
       property.requests << new_request
       property.save
+      flash.now[:confirmation_message] = "Your request for the property #{property_id} has been submited"
     else
-      flash.now[:error_message] = 'No such property exists'
-      erb(:request)
+      flash.now[:error_message] = "No such property exists"
     end
+    erb(:request)
   end
 
   get '/property/new' do
