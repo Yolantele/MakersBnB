@@ -2,7 +2,6 @@ ENV['RACK_ENV'] = 'test'
 
 require 'database_cleaner'
 require 'dm-transactions'
-require './datamapper_setup'
 require './app'
 require 'capybara'
 require 'capybara/rspec'
