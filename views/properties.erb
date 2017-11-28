@@ -5,6 +5,9 @@
     <title>Properties</title>
   </head>
   <body>
+    <form action="/request/new" method="get">
+      <input type="submit" value="Make request">
+    </form>
     <% @properties.map do |property| %>
     <%= "Id: " + property.id.to_s %>
     <%="Name: " + property.name%>
