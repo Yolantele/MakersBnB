@@ -6,6 +6,7 @@ require './app'
 require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
+require_relative './features/web_helper'
 
 Capybara.app = MakersBnB
 

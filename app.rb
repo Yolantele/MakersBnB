@@ -29,5 +29,9 @@ class MakersBnB < Sinatra::Base
     property = Property.create(name: name, description: description, price: price, email: email)
   end
 
+  get '/properties' do
+    @properties = Property.all
+    erb(:properties)
+  end
 
 end

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Properties</title>
+  </head>
+  <body>
+    <% @properties.map do |property| %>
+    <%="Name: " + property.name%>
+    <%='Description: ' + property.description%>
+    <%='Price: ' + '£' + property.price.to_s%>
+    <%='Email: ' + property.email %> <br><br>
+    <% end %>
+  </body>
+</html>
