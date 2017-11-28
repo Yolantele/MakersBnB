@@ -13,8 +13,15 @@ class MakersBnB < Sinatra::Base
     erb(:home)
   end
 
-  get '/travel' do
-    'traveller side'
+  get '/request/new' do
+    erb(:request)
+  end
+
+  post '/request/new' do
+    traveller_name = params[:traveller_name]
+    traveller_email = params[:traveller_email]
+    date = params[:date]
+    Request.create(name: traveller_name, email: traveller_email, date: date )
   end
 
   get '/property/new' do

@@ -4,6 +4,6 @@ feature 'Traveller Home' do
     fill_in(:user_email, with: 'email')
     fill_in(:user_password, with: 'password')
     click_button(id: 'traveller_enter')
-    expect(page).to have_content('traveller side')
+    expect(page).to have_field('traveller_name')
   end
 end
