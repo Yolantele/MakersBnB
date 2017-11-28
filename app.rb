@@ -17,10 +17,6 @@ class MakersBnB < Sinatra::Base
   get '/travel' do
     'traveller side'
   end
-  
-  get '/property' do
-    redirect '/property/new'
-  end
 
   get '/property/new' do
     erb(:new)
