@@ -6,10 +6,11 @@
   </head>
   <body>
     <% @properties.map do |property| %>
+    <%= "Id: " + property.id.to_s %>
     <%="Name: " + property.name%>
     <%='Description: ' + property.description%>
     <%='Price: ' + '£' + property.price.to_s%>
-    <%='Email: ' + property.email %> <br><br>
+    Email: <a href="mailto:<%= property.email %>"><%= property.email %></a><br><br>
     <% end %>
   </body>
 </html>
