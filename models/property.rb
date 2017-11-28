@@ -7,4 +7,6 @@ class Property
   property :price, Integer
   property :email, String
 
+  has n, :requests
+
 end

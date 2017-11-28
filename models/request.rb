@@ -5,6 +5,7 @@ class Request
   property :name, String
   property :email, String
   property :date, String
-  # belongs_to :property
+
+  belongs_to :property
 
 end

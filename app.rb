@@ -18,10 +18,14 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/request/new' do
+    property_id = params[:property_id].to_i
     traveller_name = params[:traveller_name]
     traveller_email = params[:traveller_email]
     date = params[:date]
-    Request.create(name: traveller_name, email: traveller_email, date: date )
+    new_request = Request.new(name: traveller_name, email: traveller_email, date: date )
+    property = Property.get(property_id)
+    property.requests << new_request
+    property.save
   end
 
   get '/property/new' do
