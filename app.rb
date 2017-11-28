@@ -27,7 +27,6 @@ class MakersBnB < Sinatra::Base
     price = params[:price].to_i
     email = params[:email]
     property = Property.create(name: name, description: description, price: price, email: email)
-    p property
   end
 
 

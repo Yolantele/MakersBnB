@@ -16,7 +16,6 @@ feature 'new property' do
     fill_in(:price, with: '60')
     fill_in(:email, with: '1234@gmail.com')
     click_button('Post')
-    p Property
     expect(Property.all.length).to eq(1)
   end
 
