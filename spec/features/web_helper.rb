@@ -4,6 +4,8 @@ def post_property
   fill_in(:description, with: 'Awesome')
   fill_in(:price, with: '60')
   fill_in(:email, with: '1234@try.it')
+  fill_in(:start_date, with:'29/11/2017')
+  fill_in(:end_date, with: '29/11/2017')
   click_button('Post')
 end
 

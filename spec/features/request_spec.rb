@@ -10,12 +10,7 @@ feature 'new request' do
   end
 
   scenario 'request is created' do
-    visit ('/property/new')
-    fill_in(:name, with: 'Marco')
-    fill_in(:description, with: 'Awesome room')
-    fill_in(:price, with: '60')
-    fill_in(:email, with: '1234@gmail.com')
-    click_button('Post')
+    post_property
     property_id = Property.all.last.id
 
     visit ('/request/new')

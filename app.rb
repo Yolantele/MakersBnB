@@ -4,6 +4,8 @@ require 'sinatra/base'
 require './datamapper_setup'
 require 'sinatra/flash'
 require './app_helper'
+require 'date'
+require 'pry'
 
 class MakersBnB < Sinatra::Base
   register Sinatra::Flash
@@ -61,14 +63,21 @@ class MakersBnB < Sinatra::Base
     description = params[:description]
     price = params[:price]
     email = params[:email]
-    available_date = params[:date]
+    start_date = params[:start_date]
+    end_date = params[:end_date]
     if new_property_error_message(name, description, price, email)
       flash.now[:price_error] = new_property_error_message(name, description, price, email)
       erb(:new_property)
     else
-      available_date = AvailableDate.create(date: available_date)
       property = Property.create(name: name, description: description, price: price.to_i, email: email)
-      property.available_dates << available_date
+      start_date = Date.parse(start_date)
+      end_date = Date.parse(end_date)
+      range = (start_date..end_date).to_a
+      range.each do |night|
+      night = AvailableDate.create(date: night)
+
+      property.available_dates << night
+    end
       property.save
     end
     redirect '/properties'
