@@ -64,9 +64,21 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  get '/property/filter' do
+    erb(:property_filter)
+  end
+
+  post '/property/my-properties' do
+    email = params[:email]
+    @properties = Property.all(email: email)
+    erb(:filtered_properties)
+  end
+
   get '/properties' do
     @properties = Property.all
     erb(:properties)
   end
+
+
 
 end
