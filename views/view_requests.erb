@@ -25,6 +25,13 @@
       <%=  request.email + ", " %>
       <%=  request.date %>
       <% end %>
+
+      <h1>Advertised Property List</h1></br>
+
+      <% @properties.each do |property| %>
+      <%=  property.name %> </br></br>
+      <% end %>
+
     </body>
   </center>
 </html>
