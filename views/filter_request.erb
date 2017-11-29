@@ -7,10 +7,15 @@
       <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
     </head>
     <body >
-      <h1>View Requests</h1></br>
+      <h2>View Requests</h2></br>
       <form action="/request/view" method="post">
         <input type="text" name="owneremail" placeholder="Owner Email">
         <input type="submit" name="viewrequests" value="See Requests">
+      </form>
+
+      
+      <form action="/home" method="get">
+        <input type="submit" name="homepage" value="Back to Homepage">
       </form>
     </body>
   </center>

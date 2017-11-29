@@ -12,21 +12,23 @@
       <input type="text" name="name" placeholder="Name">
       <input type="text" name="description" placeholder="Description">
       <input type="text" name="price" placeholder="Price">
-      <input type="text" name="email" placeholder="Email">
+      <input type="text" name="email" placeholder="Email"></br></br>
       Select start date: <input type="date" name="start_date">
       Select end date: <input type="date" name="end_date">
       <input type="submit" name="post" value="Post">
     </form>
-        <p style='color:red'> <%= flash[:price_error]%></p>
+    <p style='color:red'> <%= flash[:price_error]%></p>
 
 
     <form action="/request/view" method="get">
-    <input type="submit" name="request_manger" value="Go to Requests" >
-  </form></br>
-    <form action="/property/filter" method="get">
-    <input type="submit" name="property_manger" value="Go to Listed Properties" >
+      <input type="submit" name="request_manger" value="Go to Requests" >
     </form>
-
+    <form action="/property/filter" method="get">
+      <input type="submit" name="property_manger" value="Go to Listed Properties" >
+    </form></br>
+    <form action="/home" method="get">
+      <input type="submit" name="homepage" value="Back to Homepage">
+    </form>
   </body>
 </center>
 </html>
