@@ -36,6 +36,7 @@ class MakersBnB < Sinatra::Base
     id_of_request = params[:request_id_confirmed].to_i
     approved_request = Request.get(id_of_request)
     approved_request.update(:approved => true)
+    redirect '/request/view'
   end
 
   get '/propertymanager' do
