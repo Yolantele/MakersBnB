@@ -27,7 +27,7 @@ class MakersBnB < Sinatra::Base
   post '/request/view' do
     owner_email = params[:owneremail]
     @requests = Property.all(email: owner_email).requests
-    @properties = Property.all(email: owner_email)
+    # @properties = Property.all(email: owner_email)
     erb(:view_requests)
   end
 
