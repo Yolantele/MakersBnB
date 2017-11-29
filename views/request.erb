@@ -15,7 +15,10 @@
         <input type="submit" name="submit" value="Submit request">
       </form></br>
         <p style='color:red'> <%= flash[:error_message]%></p>
-        <p style='color:green'> <%= flash[:confirmation_message]%></p>
+        <p style='color:green'> <%= flash[:confirmation_message]%></p></br>
+      <form action="/home" method="get">
+        <input type="submit" name="homepage" value="Back to Homepage">
+      </form>
     </body>
   </center>
 </html>

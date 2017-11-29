@@ -6,14 +6,18 @@
     <title>My Properties</title>
   </head>
   <body>
-    <h1>My Properties</h1>
+    <h2>My Properties</h2></br>
     <% @properties.each do |property| %>
     <%= property.id.to_s + ', ' %>
     <%= property.name + ', '  %>
     <%= property.description + ', ' %>
     <%= '£' + property.price.to_s %>
-    <br>
-    <% end %>
+  </br>
+    <% end %></br>
+    <form action="/property/remove" method="post">
+      <input type="text" name="remove_property_name" placeholder="property name"></br>
+      <input type=submit name=remove_property value="Remove">
+    </form></br>
     <center>
   </body>
 </html>
