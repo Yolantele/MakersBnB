@@ -19,4 +19,15 @@ feature 'new property' do
     expect(Property.all.length).to eq(1)
   end
 
+  scenario 'Adds available night to property on creation' do
+    visit ('/property/new')
+    fill_in(:name, with: 'Marco')
+    fill_in(:description, with: 'Awesome room')
+    fill_in(:price, with: '60')
+    fill_in(:email, with: '1234@gmail.com')
+    fill_in(:date, with: '29/11/2017')
+    click_button('Post')
+    expect(AvailableDate.first.date).to eq(Date.parse('29/11/2017'))
+  end
+
 end

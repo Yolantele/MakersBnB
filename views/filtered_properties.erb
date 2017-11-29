@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Properties</title>
+  </head>
+  <body>
+    <% @properties.each do |property| %>
+    <%= property.id.to_s + ', ' %>
+    <%= property.name + ', '  %>
+    <%= property.description + ', ' %>
+    <%= '£'property.price.to_s %>
+    <br>
+    <% end %>
+
+  </body>
+</html>

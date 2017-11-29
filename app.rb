@@ -53,7 +53,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/property/new' do
-    erb(:new)
+    erb(:new_property)
   end
 
   post '/property/new' do
@@ -61,18 +61,34 @@ class MakersBnB < Sinatra::Base
     description = params[:description]
     price = params[:price]
     email = params[:email]
+    available_date = params[:date]
     if new_property_error_message(name, description, price, email)
       flash.now[:price_error] = new_property_error_message(name, description, price, email)
-      erb(:new)
+      erb(:new_property)
     else
-      Property.create(name: name, description: description, price: price.to_i, email: email)
+      available_date = AvailableDate.create(date: available_date)
+      property = Property.create(name: name, description: description, price: price.to_i, email: email)
+      property.available_dates << available_date
+      property.save
     end
     redirect '/properties'
+  end
+
+  get '/property/filter' do
+    erb(:property_filter)
+  end
+
+  post '/property/my-properties' do
+    email = params[:email]
+    @properties = Property.all(email: email)
+    erb(:filtered_properties)
   end
 
   get '/properties' do
     @properties = Property.all
     erb(:properties)
   end
+
+
 
 end
