@@ -31,9 +31,10 @@ class MakersBnB < Sinatra::Base
     erb(:view_requests)
   end
 
-  post 'request/accepted' do
+  post '/request/accepted' do
     id_of_request = params[:request_id_confirmed].to_i
-    approved_request = Request.first(:id => id_of_request)
+    approved_request = Request.get(id_of_request)
+    # binding.pry
     approved_request.update(:approved => true)
   end
 
