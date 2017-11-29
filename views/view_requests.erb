@@ -7,6 +7,19 @@
       <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
     </head>
     <body backround=''>
+
+      <h1>Requests</h1></br>
+
+      <form  action="" method="">  <!--  Confirm request need to be integrated   -->
+      <input type="text" name="useremailconf" placeholder= "Traveller email to confirm request" >
+      <input type="submit" name="confirm_request" value="Accept Request" >
+      </form></br>
+
+      <form  action="" method="">  <!--  Confirm request need to be integrated   -->
+      <input type="text" name="useremaildecl" placeholder= "Traveller email to decline request" >
+      <input type="submit" name="decline_request" value="Decline Request" >
+      </form></br>
+
       <% @requests.each do |request| %>
       <%=  request.name + ", " %>
       <%=  request.email + ", " %>

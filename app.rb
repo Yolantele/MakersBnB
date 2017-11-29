@@ -30,6 +30,10 @@ class MakersBnB < Sinatra::Base
     erb(:view_requests)
   end
 
+  get '/propertymanager' do
+    erb(:propertymanager)
+  end
+
   post '/request/new' do
     property_id = params[:property_id].to_i
     traveller_name = params[:traveller_name]
@@ -62,6 +66,7 @@ class MakersBnB < Sinatra::Base
     else
       Property.create(name: name, description: description, price: price.to_i, email: email)
     end
+    redirect '/properties'
   end
 
   get '/properties' do

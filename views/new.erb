@@ -7,7 +7,10 @@
       <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
     </head>
     <body background="property.jpg">
-      <form action="/property/new" method="post">
+
+      <h1>Add new Property</h1>
+
+      <form action="/filter_request" method="post">
         <input type="text" name="name" placeholder="Name">
         <input type="text" name="description" placeholder="Description">
         <input type="text" name="price" placeholder="Price">
@@ -15,6 +18,11 @@
         <input type="submit" name="post" value="Post">
       </form></br>
           <p style='color:red'> <%= flash[:price_error]%></p>
+
+      <form action="/request/view" method="get">
+      <input type="submit" name="property_manager" value="Go to Property Managment" >
+      </form>
+
     </body>
   </center>
 </html>
