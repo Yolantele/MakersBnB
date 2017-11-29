@@ -4,6 +4,7 @@ require 'sinatra/base'
 require './datamapper_setup'
 require 'sinatra/flash'
 require './app_helper'
+require 'pry'
 
 class MakersBnB < Sinatra::Base
   register Sinatra::Flash

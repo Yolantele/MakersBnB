@@ -13,9 +13,9 @@ feature 'view request' do
     visit ('/request/view')
     fill_in(:owneremail, with: '1234@try.it')
     click_button('See Requests')
-    property_id = Property.all.last.id
-    fill_in(:request_id_confirmed, with: property_id )
+    request_id = Request.last.id
+    fill_in(:request_id_confirmed, with: request_id)
     click_button('Accept Request')
-    expect(Request.all.last.approved).to eq(true)
+    expect(Request.all.last.approved).to be(true)
   end
 end
