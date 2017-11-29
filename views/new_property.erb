@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <center>
     <meta charset="utf-8">
     <title>New property</title>
     <!-- <link rel='stylesheet' type='text/css' href='href link to file' > -->
   </head>
   <body>
-
+    <h2>Add New Property</h1></br>
     <form action="/property/new" method="post">
       <input type="text" name="name" placeholder="Name">
       <input type="text" name="description" placeholder="Description">
@@ -20,8 +21,12 @@
 
 
     <form action="/request/view" method="get">
-    <input type="submit" name="property_manager" value="Go to Property Managment" >
+    <input type="submit" name="request_manger" value="Go to Requests" >
+  </form></br>
+    <form action="/property/filter" method="get">
+    <input type="submit" name="property_manger" value="Go to Listed Properties" >
     </form>
 
   </body>
+</center>
 </html>

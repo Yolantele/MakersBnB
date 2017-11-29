@@ -29,8 +29,15 @@ class MakersBnB < Sinatra::Base
   post '/request/view' do
     owner_email = params[:owneremail]
     @requests = Property.all(email: owner_email).requests
-    @properties = Property.all(email: owner_email)
+    # @properties = Property.all(email: owner_email)
     erb(:view_requests)
+  end
+
+  post '/request/accepted' do
+    id_of_request = params[:request_id_confirmed].to_i
+    approved_request = Request.get(id_of_request)
+    # binding.pry
+    approved_request.update(:approved => true)
   end
 
   get '/propertymanager' do
@@ -79,8 +86,9 @@ class MakersBnB < Sinatra::Base
       property.available_dates << night
     end
       property.save
+      redirect '/property/new'
     end
-    redirect '/properties'
+
   end
 
   get '/property/filter' do

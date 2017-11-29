@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <center>
     <meta charset="utf-8">
     <title>My Properties</title>
   </head>
   <body>
+    <h1>My Properties</h1>
     <% @properties.each do |property| %>
     <%= property.id.to_s + ', ' %>
     <%= property.name + ', '  %>
@@ -12,6 +14,6 @@
     <%= '£' + property.price.to_s %>
     <br>
     <% end %>
-
+    <center>
   </body>
 </html>
