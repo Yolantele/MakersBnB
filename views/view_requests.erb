@@ -11,27 +11,21 @@
       <h1>Requests</h1></br>
 
       <form  action="" method="">  <!--  Confirm request need to be integrated   -->
-      <input type="text" name="useremailconf" placeholder= "Traveller email to confirm request" >
+      <input type="text" name="request_id_confirmed" placeholder= "id to confirm request" >
       <input type="submit" name="confirm_request" value="Accept Request" >
       </form></br>
 
       <form  action="" method="">  <!--  Confirm request need to be integrated   -->
-      <input type="text" name="useremaildecl" placeholder= "Traveller email to decline request" >
+      <input type="text" name="request_id_declined" placeholder= "id to decline request" >
       <input type="submit" name="decline_request" value="Decline Request" >
       </form></br>
 
       <% @requests.each do |request| %>
+      <%=  request.id.to_s + ", " %>
       <%=  request.name + ", " %>
       <%=  request.email + ", " %>
-      <%=  request.date %>
+      <%=  request.date %> </br>
       <% end %>
-
-      <!-- <h1>Advertised Property List</h1></br>
-
-      <% @properties.each do |property| %>
-      <%=  property.name %> </br></br>
-      <% end %> -->
-
     </body>
   </center>
 </html>

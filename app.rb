@@ -31,6 +31,12 @@ class MakersBnB < Sinatra::Base
     erb(:view_requests)
   end
 
+  post 'request/accepted' do
+    id_of_request = params[:request_id_confirmed].to_i
+    approved_request = Request.first(:id => id_of_request)
+    approved_request.update(:approved => true)
+  end
+
   get '/propertymanager' do
     erb(:propertymanager)
   end
@@ -70,8 +76,9 @@ class MakersBnB < Sinatra::Base
       property = Property.create(name: name, description: description, price: price.to_i, email: email)
       property.available_dates << available_date
       property.save
+      redirect '/property/new'
     end
-    redirect '/properties'
+
   end
 
   get '/property/filter' do
