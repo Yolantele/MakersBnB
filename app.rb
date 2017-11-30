@@ -45,6 +45,7 @@ class MakersBnB < Sinatra::Base
     declined_request.destroy!
     redirect '/request/view'
   end
+  
   get '/propertymanager' do
     erb(:propertymanager)
   end
