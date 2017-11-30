@@ -5,8 +5,14 @@ feature "sign up" do
   end
   scenario "user can sign up" do
     visit('/')
+<<<<<<< HEAD
     fill_in(:email_up, with: 'email@example.com')
     fill_in(:password_up, with: 'wordpass')
+=======
+    fill_in(:email_sign_up, with: 'email@example.com')
+    fill_in(:password_sign_up, with: 'wordpass')
+    fill_in(:mobile_number, with: '+447510336800')
+>>>>>>> 2f2c3bc53fbf572c77493257045ea5392940af35
     click_button('Sign Up')
     expect(page).to have_content('You are now a member of MakersBnB, account: email@example.com')
   end

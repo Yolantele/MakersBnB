@@ -6,6 +6,7 @@ require 'sinatra/flash'
 require './app_helper'
 require 'date'
 require 'pry'
+require './Twillio_sms.rb'
 
 class MakersBnB < Sinatra::Base
 
@@ -19,10 +20,12 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/new' do
-    email = params[:email_up]
-    password = params[:password_up]
-    user = User.create(email: email, password: password)
+    email = params[:email_sign_up]
+    password = params[:password_sign_up]
+    mobile_number = params[:mobile_number]
+    user = User.create(email: email, password: password, mobile_number: mobile_number)
     session[:user_id] = user.id
+    Twiliosms.new.send_confirm_sms
     redirect '/users/new'
   end
 
@@ -76,12 +79,14 @@ class MakersBnB < Sinatra::Base
     id_of_request = params[:request_id_confirmed].to_i
     approved_request = Request.get(id_of_request)
     approved_request.update(:approved => true)
+
     redirect '/request/view'
   end
 
   post '/request/declined' do
     id_of_declined = params[:request_id_declined].to_i
     Request.get(id_of_declined).destroy
+
     redirect '/request/view'
   end
 
