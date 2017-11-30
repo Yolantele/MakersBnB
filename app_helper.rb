@@ -5,3 +5,7 @@ def new_property_error_message(name, description, price, email)
     'Please fill in all boxes'
   end
 end
+
+def current_user
+  @current_user ||= User.get(session[:user_id])
+end
