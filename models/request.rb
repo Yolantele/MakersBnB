@@ -7,6 +7,6 @@ class Request
   property :date, String
   property :approved, Boolean, default: false
 
-  belongs_to :property
+  belongs_to :property, :constraint => :skip
 
 end

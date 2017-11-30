@@ -139,6 +139,7 @@ DEPENDENCIES
   capybara
   data_mapper
   database_cleaner
+  dm-constraints
   dm-migrations
   dm-postgres-adapter
   dm-transactions

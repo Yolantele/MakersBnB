@@ -39,13 +39,15 @@ class MakersBnB < Sinatra::Base
     redirect '/request/view'
   end
 
-  post '/request/declined' do
-    id_of_declined = params[:request_id_declined].to_i
-    declined_request = Request.get(id_of_declined)
-    declined_request.destroy!
-    redirect '/request/view'
-  end
-  
+  # post '/request/declined' do
+  #   id_of_declined = params[:request_id_declined].to_i
+  #   declined_request = Request.get(id_of_declined)
+  #   declined_request(:property => declined_request.property).destroy!
+  #   # binding.pry
+  #   declined_request.destroy!
+  #   redirect '/request/view'
+  # end
+
   get '/propertymanager' do
     erb(:propertymanager)
   end
@@ -61,6 +63,7 @@ class MakersBnB < Sinatra::Base
       property.requests << new_request
       property.save
       flash.now[:confirmation_message] = "Your request for the property #{property_id} has been submited"
+
     else
       flash.now[:error_message] = "No such property exists"
     end

@@ -25,11 +25,7 @@ feature 'view request' do
     fill_in(:owneremail, with: '1234@try.it')
     click_button('See Requests')
     request_id = Request.last.id
-    fill_in(:request_id_confirmed, with: request_id)
-    # number_of_requests = Request.all.length
-    # click_button('Decline Request')
-    # expect(Request.all.length).to eq(number_of_requests - 1)
-
+    fill_in(:request_id_declined, with: request_id)
     expect {click_button('Decline Request') }.to change{Request.all.length}.by(-1)
   end
 

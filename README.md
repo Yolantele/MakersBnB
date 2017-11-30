@@ -70,14 +70,13 @@ I want to see only available properties on a certain date
 # Nice-to-haves
 
 - Users should receive an email whenever one of the following happens:
-1. They sign up
+<!-- 1. They sign up
 2. They create a space
-3. They update a space
-4. A user requests to book their space
-5. They confirm a request
-6. They request to book a space
-7. Their request to book a space is confirmed
-10. Their request to book a space is denied
+3. They update a space -->
+4. to Owner - A user requests to book their space
+5. to User - They confirm a request
+6. to User - Their request to book a space is confirmed
+7. to User -Their request to book a space is denied
 
 - Users should receive a text message to a provided number whenever one of the following happens:
 1. A user requests to book their space
