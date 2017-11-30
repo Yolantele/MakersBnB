@@ -11,3 +11,12 @@ feature "sign up" do
     expect(page).to have_content('You are now a member of MakersBnB, account: email@example.com')
   end
 end
+
+
+feature "sign in" do
+  scenario "user can sign in on page" do
+    visit('/')
+    expect(page).to have_content('sign in')
+
+  end
+end
