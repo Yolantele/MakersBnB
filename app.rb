@@ -12,14 +12,15 @@ class MakersBnB < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   get '/' do
     erb(:sign_in)
   end
 
   post '/users/new' do
-    email = params[:email]
-    password = params[:password]
+    email = params[:email_up]
+    password = params[:password_up]
     user = User.create(email: email, password: password)
     session[:user_id] = user.id
     redirect '/users/new'
@@ -28,6 +29,29 @@ class MakersBnB < Sinatra::Base
   get '/users/new' do
   current_user
     erb(:welcome_user)
+  end
+
+
+  post '/users/session' do
+    user = User.authenticate(params[:email_in], params[:password_in])
+    if user
+      session[:user_id] = user.id
+      redirect '/users/session'
+    else
+      flash.now[:error] = 'You have entered an incorrect email or password'
+      erb(:sign_in)
+    end
+  end
+
+  get '/users/session' do
+    current_user
+    erb(:welcome_back)
+  end
+
+  delete '/users/session' do
+    session[:user_id] = nil
+  #  flash.keep[:notice] = 'thanks for visiting!'
+    redirect to '/'
   end
 
   get '/home' do

@@ -18,10 +18,14 @@
       <input type="text" name="remove_property_name" placeholder="property name"></br>
       <input type=submit name=remove_property value="Remove">
     </form></br>
-    
+
     <form action="/home" method="get">
       <input type="submit" name="homepage" value="Back to Homepage">
     </form>
     <center>
+      <form method='post' action='/users/session'>
+       <input type='hidden' name='_method' value='delete'>
+       <input type='submit' value='Sign Out'>
+     </form>
   </body>
 </html>

@@ -15,5 +15,9 @@
         <p>Owner Email: <%= bnb.email %></p>
       <% end %>
     </ul>
+    <form method='post' action='/users/session'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Sign Out'>
+   </form>
   </body>
 </html>

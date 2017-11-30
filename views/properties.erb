@@ -17,10 +17,14 @@
       <%= 'Price: ' + '£' + property.price.to_s%>
       Email: <a href="mailto:<%= property.email %>"><%= property.email %></a><br><br>
       <% end %>
-      
+
       <form action="/home" method="get">
         <input type="submit" name="homepage" value="Back to Homepage">
       </form>
     </body>
+    <form method='post' action='/users/session'>
+     <input type='hidden' name='_method' value='delete'>
+     <input type='submit' value='Sign Out'>
+   </form>
   </center>
 </html>
