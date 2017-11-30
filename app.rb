@@ -99,10 +99,7 @@ class MakersBnB < Sinatra::Base
       erb(:new_property)
     else
       property = Property.create(name: name, description: description, price: price.to_i, email: email)
-      start_date = Date.parse(start_date)
-      end_date = Date.parse(end_date)
-      range = (start_date..end_date).to_a
-      range.each do |night|
+      (Date.parse(start_date)..Date.parse(end_date)).to_a.each do |night|
         night = AvailableDate.first_or_create(date: night)
         property.available_dates << night
       end
@@ -118,6 +115,9 @@ class MakersBnB < Sinatra::Base
   post '/property/search' do
     chosen_date = AvailableDate.first(date: Date.parse(params[:chosen_date]))
     @search_results = Property.all.select { |bnb| bnb.available_dates.include?(chosen_date) }
+    unless params[:max_price].empty?
+      @search_results = @search_results.select { |bnb| bnb.price <= params[:max_price].to_i } 
+    end
     erb :property_search_results
   end
 
