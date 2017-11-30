@@ -6,6 +6,7 @@ require 'sinatra/flash'
 require './app_helper'
 require 'date'
 require 'pry'
+require './Twillio_sms.rb'
 
 class MakersBnB < Sinatra::Base
 
@@ -18,10 +19,12 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/users/new' do
-    email = params[:email]
-    password = params[:password]
-    user = User.create(email: email, password: password)
+    email = params[:email_sign_up]
+    password = params[:password_sign_up]
+    mobile_number = params[:mobile_number]
+    user = User.create(email: email, password: password, mobile_number: mobile_number)
     session[:user_id] = user.id
+
     redirect '/users/new'
   end
 

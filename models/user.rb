@@ -6,6 +6,7 @@ class User
   property :id, Serial
   property :email, String
   property :password_digest, Text
+  property :mobile_number, Text
 
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
