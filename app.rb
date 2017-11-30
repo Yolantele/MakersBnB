@@ -8,10 +8,26 @@ require 'date'
 require 'pry'
 
 class MakersBnB < Sinatra::Base
+
+  enable :sessions
+  set :session_secret, 'super secret'
   register Sinatra::Flash
 
   get '/' do
-    redirect '/home'
+    erb(:sign_in)
+  end
+
+  post '/users/new' do
+    email = params[:email]
+    password = params[:password]
+    user = User.create(email: email, password: password)
+    session[:user_id] = user.id
+    redirect '/users/new'
+  end
+
+  get '/users/new' do
+  current_user
+    erb(:welcome_user)
   end
 
   get '/home' do
@@ -45,7 +61,7 @@ class MakersBnB < Sinatra::Base
     declined_request.destroy!
     redirect '/request/view'
   end
-  
+
   get '/propertymanager' do
     erb(:propertymanager)
   end
