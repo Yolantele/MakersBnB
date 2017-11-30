@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <center>
     <head>
       <meta charset="utf-8">
       <h2><title>Properties</title></h2></br>
       <link rel='stylesheet' type='text/css' href='../public/stylesheets.css' >
     </head>
     <body>
+<<<<<<< HEAD
       <form action="/request/new" method="get">
         <input type="submit" value="Make request">
       </form></br>
@@ -18,13 +18,31 @@
       Email: <a href="mailto:<%= property.email %>"><%= property.email %></a><br><br>
       <% end %>
 
+=======
+>>>>>>> origin/trm
       <form action="/home" method="get">
         <input type="submit" name="homepage" value="Back to Homepage">
       </form>
+      <br>
+      <form action="/request/new" method="get">
+        <input type="submit" value="Make request">
+      </form>
+      <h3>All properties:</h3>
+      <ul>
+        <% @properties.each do |property| %>
+          <li>Name: <%= property.name %></li>
+          <p>Id: <%= property.id %></p>
+          <p>Description: <%= property.description %></p>
+          <p>Price per night: £<%= property.price %></p>
+        <% end %>
+      </ul>
     </body>
+<<<<<<< HEAD
     <form method='post' action='/users/session'>
      <input type='hidden' name='_method' value='delete'>
      <input type='submit' value='Sign Out'>
    </form>
   </center>
+=======
+>>>>>>> origin/trm
 </html>

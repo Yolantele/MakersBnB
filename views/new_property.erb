@@ -17,7 +17,8 @@
       Select end date: <input type="date" name="end_date">
       <input type="submit" name="post" value="Post">
     </form>
-    <p style='color:red'> <%= flash[:price_error]%></p>
+    <p style='color:red'> <%= flash[:error_message]%></p>
+    <p style='color:green'> <%= flash[:confirmation_message]%></p>
 
 
     <form action="/request/view" method="get">

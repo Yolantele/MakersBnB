@@ -9,7 +9,7 @@ def post_property
   click_button('Post')
 end
 
-def post_new_property(name: 'My House', description: '3 Bed Semi', price: '50',
+def post_new_property(name: 'My House', description: '3 Bed Semi', price: 50,
     email: 'me@mail.com', start_date: '21/01/2017', end_date: '22/01/2017')
   visit('/property/new')
   fill_in(:name, with: name)
