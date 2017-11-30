@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Search Results</title>
+  </head>
+  <body>
+    <h1>Search Results:</h1>
+    <h3>Displaying properties available on: <%= params[:chosen_date] %></h3>
+    <ul>
+      <% @search_results.each do |bnb| %>
+        <li><%= bnb.name %></li>
+        <p>Description: <%= bnb.description %></p>
+        <p>Price: <%= bnb.price %></p>
+        <p>Owner Email: <%= bnb.email %></p>
+      <% end %>
+    </ul>
+  </body>
+</html>

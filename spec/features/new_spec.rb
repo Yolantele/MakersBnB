@@ -16,7 +16,7 @@ feature 'new property' do
 
   scenario 'Adds available night to property on creation' do
     post_property
-    expect(AvailableDate.first.date).to eq(Date.parse('29/11/2017'))
+    expect(AvailableDate.first.date).to eq(Date.parse('21/01/2017'))
   end
 
   scenario 'adds a range of dates to property' do

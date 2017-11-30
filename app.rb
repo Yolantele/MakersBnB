@@ -45,7 +45,7 @@ class MakersBnB < Sinatra::Base
     declined_request.destroy!
     redirect '/request/view'
   end
-  
+
   get '/propertymanager' do
     erb(:propertymanager)
   end
@@ -87,14 +87,22 @@ class MakersBnB < Sinatra::Base
       end_date = Date.parse(end_date)
       range = (start_date..end_date).to_a
       range.each do |night|
-      night = AvailableDate.create(date: night)
-
-      property.available_dates << night
-    end
+        night = AvailableDate.first_or_create(date: night)
+        property.available_dates << night
+      end
       property.save
       redirect '/property/new'
     end
+  end
 
+  get '/property/search' do
+    erb :search_properties
+  end
+
+  post '/property/search' do
+    chosen_date = AvailableDate.first(date: Date.parse(params[:chosen_date]))
+    @search_results = Property.all.select { |bnb| bnb.available_dates.include?(chosen_date) }
+    erb :property_search_results
   end
 
   get '/property/filter' do
@@ -111,7 +119,4 @@ class MakersBnB < Sinatra::Base
     @properties = Property.all
     erb(:properties)
   end
-
-
-
 end
