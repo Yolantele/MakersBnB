@@ -7,10 +7,21 @@
   <body>
     <h1>Search Results:</h1>
     <h3>Displaying properties available on: <%= params[:chosen_date] %></h3>
-    <h5><%= 'No properties match your requirements' if @search_results.empty? %></h5>
+    <% if @search_results.empty? %>
+      <h5><%= 'No properties match your requirements' %></h5>
+    <% else %>
+      <form action="/request/new" method="get">
+        <input type="submit" value="Make request">
+      </form>
+      <br>
+    <% end %>
+    <form action="/property/search" method="get">
+      <input type="submit" value="New Search">
+    </form>
     <ul>
       <% @search_results.each do |bnb| %>
         <li><%= bnb.name %></li>
+        <p>ID: <%= bnb.id %></p>
         <p>Description: <%= bnb.description %></p>
         <p>Price: <%= bnb.price %></p>
         <p>Owner Email: <%= bnb.email %></p>
