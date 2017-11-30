@@ -39,6 +39,12 @@ class MakersBnB < Sinatra::Base
     redirect '/request/view'
   end
 
+  post '/request/declined' do
+    id_of_declined = params[:request_id_declined].to_i
+    declined_request = Request.get(id_of_declined)
+    declined_request.destroy!
+    redirect '/request/view'
+  end
   get '/propertymanager' do
     erb(:propertymanager)
   end
