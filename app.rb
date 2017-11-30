@@ -49,8 +49,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/request/accepted' do
-    id_of_request = params[:request_id_confirmed].to_i
-    approved_request = Request.get(id_of_request)
+    approved_request = Request.get(params[:request_id_confirmed].to_i)
     approved_request.update(:approved => true)
     redirect '/request/view'
   end
@@ -76,7 +75,6 @@ class MakersBnB < Sinatra::Base
       property.requests << new_request
       property.save
       flash.now[:confirmation_message] = "Your request for the property #{property_id} has been submited"
-
     else
       flash.now[:error_message] = "No such property exists"
     end
@@ -88,24 +86,19 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/property/new' do
-    name = params[:name]
+    name        = params[:name]
     description = params[:description]
-    price = params[:price]
-    email = params[:email]
-    start_date = params[:start_date]
-    end_date = params[:end_date]
-    if new_property_error_message(name, description, price, email)
-      flash.now[:price_error] = new_property_error_message(name, description, price, email)
-      erb(:new_property)
+    price       = params[:price]
+    email       = params[:email]
+    start_date  = params[:start_date]
+    end_date    = params[:end_date]
+    if new_property_error?(name, description, price, email)
+      flash.now[:error_message] = new_property_error_message(name, description, price, email)
     else
-      property = Property.create(name: name, description: description, price: price.to_i, email: email)
-      (Date.parse(start_date)..Date.parse(end_date)).to_a.each do |night|
-        night = AvailableDate.first_or_create(date: night)
-        property.available_dates << night
-      end
-      property.save
-      redirect '/property/new'
+      create_property(name, description, price, email, start_date, end_date)
+      flash.now[:confirmation_message] = 'Your property has been added to MakersBnB'
     end
+    erb(:new_property)
   end
 
   get '/property/search' do
@@ -113,11 +106,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/property/search' do
-    chosen_date = AvailableDate.first(date: Date.parse(params[:chosen_date]))
-    @search_results = Property.all.select { |bnb| bnb.available_dates.include?(chosen_date) }
-    unless params[:max_price].empty?
-      @search_results = @search_results.select { |bnb| bnb.price <= params[:max_price].to_i } 
-    end
+    @search_results = search_properties(params[:chosen_date], params[:max_price])
     erb :property_search_results
   end
 
@@ -126,8 +115,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/property/my-properties' do
-    email = params[:email]
-    @properties = Property.all(email: email)
+    @properties = Property.all(email: params[:email])
     erb(:filtered_properties)
   end
 
