@@ -3,15 +3,14 @@ require 'twilio-ruby'
 class Twiliosms
 
   def send_confirm_sms
-    account_sid = "AC3c7f3add2a39566e305dbf7d80fd56db"
-    auth_token = "986acafbb584afc7ae3e48993a88fe4f"
+    account_sid = "AC70edc4480c7ec69ec4dbb4881d868c9b"
+    auth_token = "c5b48f1ef699447280788be9a7b1d898"
 
     @client = Twilio::REST::Client.new account_sid, auth_token
     message = @client.messages.create(
-        body: "Thank you! Your order was placed and will be delivered before #{Time.now.strftime '%I:%M %p'}",
-        to: "",
-        from: "+441827230490")
-        
+        body: "Thank you for signing up to Makers BnB!",
+        to: "+447510336800",
+        from: "+441477652055")
   end
 
 end
