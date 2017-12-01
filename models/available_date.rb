@@ -4,6 +4,6 @@ class AvailableDate
   property :id, Serial
   property :date, Date
 
-  has n, :property, through: Resource
+  has n, :houses, through: Resource
 
 end

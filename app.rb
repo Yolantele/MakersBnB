@@ -70,8 +70,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/request/view' do
-    owner_email = params[:owneremail]
-    @requests = Property.all(email: owner_email).requests
+
+    @requests = current_user.houses.requests 
     erb(:view_requests)
   end
 
@@ -99,7 +99,7 @@ class MakersBnB < Sinatra::Base
     traveller_email = params[:traveller_email]
     date = params[:date]
     new_request = Request.new(name: traveller_name, email: traveller_email, date: date )
-    property = Property.get(property_id)
+    property = House.get(property_id)
     if property
       property.requests << new_request
       property.save
@@ -115,16 +115,16 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/property/new' do
+
     name        = params[:name]
     description = params[:description]
     price       = params[:price]
-    email       = params[:email]
     start_date  = params[:start_date]
     end_date    = params[:end_date]
-    if new_property_error?(name, description, price, email)
-      flash.now[:error_message] = new_property_error_message(name, description, price, email)
+    if new_property_error?(name, description, price)
+      flash.now[:error_message] = new_property_error_message(name, description, price)
     else
-      create_property(name, description, price, email, start_date, end_date)
+      create_property(name, description, price, start_date, end_date)
       flash.now[:confirmation_message] = 'Your property has been added to MakersBnB'
     end
     erb(:new_property)
@@ -144,12 +144,12 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/property/my-properties' do
-    @properties = Property.all(email: params[:email])
+    @properties = current_user.houses
     erb(:filtered_properties)
   end
 
   get '/properties' do
-    @properties = Property.all
+    @properties = House.all
     erb(:properties)
   end
 end

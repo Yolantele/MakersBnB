@@ -11,7 +11,7 @@ feature 'new request' do
 
   scenario 'request is created' do
     post_property
-    property_id = Property.all.last.id
+    property_id = House.all.last.id
 
     visit ('/request/new')
     fill_in(:property_id, with: property_id.to_s)
