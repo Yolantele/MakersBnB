@@ -1,9 +1,9 @@
-## An AirBnB Clone Project
+# An AirBnB Clone Project
 
 This is our take to reproduce a well known Bed&Breakfast rental platform. The project followed a typical MVP model execution and any further iterartions until we ran out of time. 
 
 
-## Key implemented features :
+### Key implemented features :
 
 1. Any signed-up user can list a new space.
 2. Users can list multiple spaces, name, describe and add a price per night.
@@ -13,7 +13,7 @@ This is our take to reproduce a well known Bed&Breakfast rental platform. The pr
 6. Until a user has confirmed a booking request, that space can still be booked for that night.
 7. User receives a confirmation message once signed up to platofrm. 
 
-### Additional features yet to be added: 
+#### Additional features yet to be added: 
 
 - Users should receive an email whenever they sign up, create or updates a space, confirm a request or their request to book a space is confirmed/denied. 
 
@@ -21,44 +21,38 @@ This is our take to reproduce a well known Bed&Breakfast rental platform. The pr
 
 - Basic payment implementation using Stripe.
 
-## To run the application:
+### To run the application:
 
 1. clone this repo
 2. run ``` bundle install ``` command locally in MakersBnB folder
-3. lastly, run ``` rackup ``` command, it should open page on http://localhost:9292/
+3. lastly, run ``` rackup ``` command, it should open app on [localhost page](http://localhost:9292/)
 
 
 ### MVP User stories and Domain model:
 
+As an Owner:
 ```
-As a signed-up owner
 So that I can rent out property
 I want to list new property
 ```
 ```
-As a signed-up traveler
+so that I can manage bookings
+I want to approve traveler's request
+```
+
+As a traveler:
+```
 So that I can choose a property
 I want to place a request for single night
 ```
-```
-As an owner
-so that I can manage bookings
-I want to approve traveler's request
 
-```
-MVP Domain Model
-
-| Object           | Messages      |
-|:----------------:|:-------------:|
-|OWNER             |               |
-| property         | rent out      |
-|                  | to list       |
+| Object           | Messages      |      | Object           | Messages      |
+|:----------------:|:-------------:|      |:----------------:|:-------------:|
+|OWNER             |               |      | TRAVELER         |               |
+| property         | rent out      |      | property         | choose        |
+|                  | to list       |      | request          | to place      |
 | bookings         | manage        |
 | request          | confirm       |
-| TRAVELER         |               |
-| property         | choose        |
-| request          | to place      |
-
 
 
 ### Other User Stories
