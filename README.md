@@ -1,7 +1,8 @@
-## MakersBnB
-group project for Air BnB clone
+## An AirBnB Clone Project
 
-MVP
+This is our take to reproduce a well known Bed&Breakfast rental platform. The project followed a typical MVP model execution and any further iterartions until we ran out of time. 
+
+### MVP User stories and Domain model:
 
 ```
 As a signed-up owner
@@ -31,7 +32,7 @@ MVP Domain Model
 | request          | to place      |
 
 
-# Core User Stories
+# Other User Stories
 
 ```
 
@@ -57,32 +58,26 @@ I want to see only available properties on a certain date
 
 ```
 
-# Headline specifications
+## Key implemented features :
 
-<!-- 1. Any signed-up user can list a new space.
-2. Users can list multiple spaces.
-3. Users should be able to name their space, provide a short description of the space, and a price per night.
-4. Users should be able to offer a range of dates where their space is available.
-5. Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space. -->
-6. Nights for which a space has already been booked should not be available for users to book that space.
-7. Until a user has confirmed a booking request, that space can still be booked for that night.
+1. Any signed-up user can list a new space.
+2. Users can list multiple spaces, name, describe and add a price per night.
+3. Users are able to offer a range of dates where their space is available.
+4. Any signed-up user can request to hire any space for one night, and this is approved by the owners that owns that space.
+5. Nights for which a space has already been booked should not be available for users to book that space.
+6. Until a user has confirmed a booking request, that space can still be booked for that night.
+7. User receives a confirmation message once signed up to platofrm. 
 
-# Nice-to-haves
+### Additional features yet to be added: 
 
-- Users should receive an email whenever one of the following happens:
-<!-- 1. They sign up
-2. They create a space
-3. They update a space -->
-4. to Owner - A user requests to book their space
-5. to User - They confirm a request
-6. to User - Their request to book a space is confirmed
-7. to User -Their request to book a space is denied
-
-- Users should receive a text message to a provided number whenever one of the following happens:
-1. A user requests to book their space
-2. Their request to book a space is confirmed
-3. Their request to book a space is denied
+- Users should receive an email whenever they sign up, create or updates a space, confirm a request or their request to book a space is confirmed/denied. 
 
 - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 
 - Basic payment implementation though Stripe.
+
+## To run the application:
+
+1. clone this repo
+2. run ``` bundle install ``` command locally in MakersBnB folder
+3. lastly, run ``` rackup ``` command, it should open page on http://localhost:9292/
