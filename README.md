@@ -46,13 +46,17 @@ So that I can choose a property
 I want to place a request for single night
 ```
 
-| Object           | Messages      |      | Object           | Messages      |
-|:----------------:|:-------------:|      |:----------------:|:-------------:|
-|OWNER             |               |      | TRAVELER         |               |
-| property         | rent out      |      | property         | choose        |
-|                  | to list       |      | request          | to place      |
+| Object           | Messages      |
+|:----------------:|:-------------:|
+|OWNER             |               |
+| property         | rent out      |
+|                  | to list       |    
 | bookings         | manage        |
 | request          | confirm       |
+|                  |               |
+| TRAVELER         |               |
+| property         | choose        |
+| request          | to place      |
 
 
 ### Other User Stories
