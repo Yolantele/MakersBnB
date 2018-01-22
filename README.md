@@ -8,11 +8,13 @@ This is our take to reproduce a well known Bed&Breakfast rental platform. The pr
 As a signed-up owner
 So that I can rent out property
 I want to list new property
-
+```
+```
 As a signed-up traveler
 So that I can choose a property
 I want to place a request for single night
-
+```
+```
 As an owner
 so that I can manage bookings
 I want to approve traveler's request
@@ -24,39 +26,13 @@ MVP Domain Model
 |:----------------:|:-------------:|
 |OWNER             |               |
 | property         | rent out      |
-| property         | to list       |
+|                  | to list       |
 | bookings         | manage        |
 | request          | confirm       |
 | TRAVELER         |               |
 | property         | choose        |
 | request          | to place      |
 
-
-# Other User Stories
-
-```
-
-As an Owner
-So that I can rent out multiple properties,
-I want to list multiple properties
-
-As an Owner
-So that I can put the right information
-I want to add name, short description and price per night
-
-As an Owner
-So that I can better manage my property bookings
-I want to post a range of available dates
-
-As an Owner
-so that I can better manage my bookings
-I want my property be available until I confirm travellers request
-
-As a traveler
-So that I don’t make the wrong booking
-I want to see only available properties on a certain date
-
-```
 
 ## Key implemented features :
 
@@ -74,10 +50,41 @@ I want to see only available properties on a certain date
 
 - A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
 
-- Basic payment implementation though Stripe.
+- Basic payment implementation using Stripe.
 
 ## To run the application:
 
 1. clone this repo
 2. run ``` bundle install ``` command locally in MakersBnB folder
 3. lastly, run ``` rackup ``` command, it should open page on http://localhost:9292/
+
+
+### User Stories
+
+```
+
+As an Owner
+So that I can rent out multiple properties,
+I want to list multiple properties
+```
+```
+As an Owner
+So that I can put the right information
+I want to add name, short description and price per night
+```
+```
+As an Owner
+So that I can better manage my property bookings
+I want to post a range of available dates
+```
+```
+As an Owner
+so that I can better manage my bookings
+I want my property be available until I confirm travellers request
+```
+```
+As a traveler
+So that I don’t make the wrong booking
+I want to see only available properties on a certain date
+
+```
